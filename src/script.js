@@ -71,9 +71,6 @@ const infiniteScroll = new InfiniteScroll(refs.galleryWrapperEl, {
   responseType: 'json',
   history: false,
   status: '.scroll-status',
-  path: function () {
-    return `${BASE_URL}?key=${API_KEY}&q=${value}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${PER_PAGE}&page=${currentPage}`;
-  },
 });
 
 infiniteScroll.on('load', onload);
