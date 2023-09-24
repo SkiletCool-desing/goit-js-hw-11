@@ -5,7 +5,6 @@ import { fetchImages, PER_PAGE, API_KEY, BASE_URL } from './js/api';
 import createMarkup from './js/template/markup';
 import refs from './js/refs';
 
-
 document.addEventListener('DOMContentLoaded', () => {
   refs.formEl.addEventListener('submit', onSubmitSearch);
 
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'beforeend',
         createMarkup(resp.hits)
       );
-      
+
       if (!lightbox) {
         lightbox = new SimpleLightbox('.gallery a', {
           captions: true,
@@ -86,9 +85,19 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.5,
   };
 
-  const intersectionObserver = new IntersectionObserver(handleIntersection, options);
-  
+  const intersectionObserver = new IntersectionObserver(
+    handleIntersection,
+    options
+  );
+
   intersectionObserver.observe(refs.bottomElement);
+
+  const infinite = new IntersectionObserver(([entry], observer) => {
+    if (entry.isIntersecting) {
+      observer.unobserve(entry.target);
+      getImage();
+    }
+  });
 
   function message(sms) {
     Report.warning('Warning!', `${sms}`);
