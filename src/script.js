@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   console.log(refs.bottomElement);
-  // intersectionObserver.observe(refs.bottomElement);
 
   const infinite = new IntersectionObserver(([entry], observer) => {
     if (entry.isIntersecting) {
