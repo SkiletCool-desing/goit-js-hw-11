@@ -90,15 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
     options
   );
 
+const infinite = new IntersectionObserver(([entry], observer) => {  
+    if (entry.isIntersecting) {
+        observer.unobserve(entry.target)
+        onLoadMore()
+    }
+})
+
   console.log(refs.bottomElement);
   intersectionObserver.observe(refs.bottomElement);
-
-  const infinite = new IntersectionObserver(([entry], observer) => {
-    if (entry.isIntersecting) {
-      observer.unobserve(entry.target);
-      getImage();
-    }
-  });
 
   function message(sms) {
     Report.warning('Warning!', `${sms}`);
