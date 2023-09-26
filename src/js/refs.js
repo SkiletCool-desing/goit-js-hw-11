@@ -4,4 +4,3 @@ export default {
     btnEl: document.querySelector('.load-more'),
     spanEl: document.querySelector('.js-span'),
   };
-refs.bottomElement = document.querySelector('.bottom-element');
