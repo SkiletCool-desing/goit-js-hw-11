@@ -3,5 +3,4 @@ export default {
     galleryWrapperEl: document.querySelector('.gallery'),
     btnEl: document.querySelector('.load-more'),
     spanEl: document.querySelector('.js-span'),
-    bottomElement:document.querySelector('.bottom-element')
-}
+    bottomElement:document.querySelector('.bottom-element')}
