@@ -27,9 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function getImage() {
-    if (!value) {
-      return;
-    }
     try {
       const resp = await fetchImages(currentPage, value);
       refs.galleryWrapperEl.insertAdjacentHTML(
@@ -93,14 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
     options
   );
 
-  const infinite = new IntersectionObserver(([entry], observer) => {
+const infinite = new IntersectionObserver(([entry], observer) => {  
     if (entry.isIntersecting) {
-      observer.unobserve(entry.target);
-      onLoadMore();
+        observer.unobserve(entry.target)
+        onLoadMore()
     }
-  });
+})
 
-  // console.log(refs.bottomElement);
+  console.log(refs.bottomElement);
   intersectionObserver.observe(refs.bottomElement);
 
   function message(sms) {
